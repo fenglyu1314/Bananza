@@ -1,9 +1,8 @@
 {
-    "name": "Bananza.Runtime",
-    "rootNamespace": "Bananza",
+    "name": "Bananza.Input",
+    "rootNamespace": "Bananza.Gameplay.Player",
     "references": [
-        "Unity.InputSystem",
-        "Bananza.Input"
+        "Unity.InputSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

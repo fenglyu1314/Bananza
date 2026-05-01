@@ -140,7 +140,14 @@
 >   - 解决方案：
 >   - 相关链接/代码位置：
 
-（暂无记录，首次踩坑时从此处开始追加。）
+- **[2026-05-01] [Input] 启用新版 Input System**
+  - 背景：OpenSpec change `add-character-movement` 决定主角移动走 `com.unity.inputsystem`，而非旧版 `UnityEngine.Input.GetAxis` / `Input.GetKey`。
+  - 操作：
+    1. 在团结引擎 `1.8.2`（底座 Unity `2022.3.62t4`）编辑器中打开项目，通过 `Window → Package Manager` 确认已安装 `Input System` 包。
+    2. 打开 `Edit → Project Settings → Player → Other Settings → Configuration`，将 `Active Input Handling` 从默认值切换为 **`Input System Package (New)`**（如需同时保留旧版输入兼容，可改为 `Both`；本项目取 `Input System Package (New)`）。
+    3. 编辑器自动弹出提示后按提示重启编辑器，使设置生效。
+  - 验证：重启后无 `InputSystem` 相关编译错误；后续 `PlayerInputActions.inputactions` 与 `PlayerInput` 组件将基于此开关工作。
+  - 相关：change `add-character-movement`（P1 角色移动），spec `player-character` 的 `Requirement: Input Mapping via Unity Input System`。
 
 ---
 
