@@ -1,0 +1,118 @@
+# ============================================================
+# Git 属性配置
+# 1. 统一行尾为 LF（检出时按平台转）
+# 2. 标记 Unity YAML 文本资产（.unity/.prefab/.asset/.meta）以启用 Unity Smart Merge（可选）
+# 3. 大型二进制资产走 Git LFS
+# ============================================================
+
+# ---------- 行尾策略 ----------
+* text=auto eol=lf
+
+# 明确文本文件
+*.cs        text diff=csharp
+*.shader    text
+*.cginc     text
+*.hlsl      text
+*.compute   text
+*.uss       text
+*.uxml      text
+*.json      text
+*.xml       text
+*.yaml      text
+*.yml       text
+*.md        text
+*.txt       text
+
+# Windows 批处理保持 CRLF
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# Shell 脚本保持 LF
+*.sh        text eol=lf
+
+# ---------- Unity 文本资产（Force Text 序列化模式下） ----------
+# 这些文件是 YAML 文本，未来如启用 Unity Smart Merge 可在此基础上加 merge=unityyamlmerge
+*.unity     text
+*.prefab    text
+*.asset     text
+*.meta      text
+*.mat       text
+*.anim      text
+*.controller text
+*.overrideController text
+*.physicMaterial text
+*.physicsMaterial2D text
+*.playable  text
+*.mask      text
+*.brush     text
+*.flare     text
+*.fontsettings text
+*.guiskin   text
+*.giparams  text
+*.terrainlayer text
+*.mixer     text
+*.shadervariants text
+*.preset    text
+*.asmdef    text
+*.asmref    text
+
+# ---------- 二进制文件（直接标记，不走 LFS） ----------
+# 小体量 PNG/JPG 等图标类文件不强制 LFS，走普通 Git 即可
+# 如后续 UI 图集过大，可按需把 *.png 改为 LFS
+
+# ---------- Git LFS：大型二进制资产 ----------
+# 图像（大文件）
+*.psd       filter=lfs diff=lfs merge=lfs -text
+*.psb       filter=lfs diff=lfs merge=lfs -text
+*.tga       filter=lfs diff=lfs merge=lfs -text
+*.tif       filter=lfs diff=lfs merge=lfs -text
+*.tiff      filter=lfs diff=lfs merge=lfs -text
+*.exr       filter=lfs diff=lfs merge=lfs -text
+*.hdr       filter=lfs diff=lfs merge=lfs -text
+
+# 3D 模型
+*.fbx       filter=lfs diff=lfs merge=lfs -text
+*.FBX       filter=lfs diff=lfs merge=lfs -text
+*.obj       filter=lfs diff=lfs merge=lfs -text
+*.blend     filter=lfs diff=lfs merge=lfs -text
+*.blend1    filter=lfs diff=lfs merge=lfs -text
+*.dae       filter=lfs diff=lfs merge=lfs -text
+*.3ds       filter=lfs diff=lfs merge=lfs -text
+*.max       filter=lfs diff=lfs merge=lfs -text
+*.ma        filter=lfs diff=lfs merge=lfs -text
+*.mb        filter=lfs diff=lfs merge=lfs -text
+
+# 音频
+*.wav       filter=lfs diff=lfs merge=lfs -text
+*.mp3       filter=lfs diff=lfs merge=lfs -text
+*.ogg       filter=lfs diff=lfs merge=lfs -text
+*.aif       filter=lfs diff=lfs merge=lfs -text
+*.aiff      filter=lfs diff=lfs merge=lfs -text
+*.flac      filter=lfs diff=lfs merge=lfs -text
+
+# 视频
+*.mp4       filter=lfs diff=lfs merge=lfs -text
+*.mov       filter=lfs diff=lfs merge=lfs -text
+*.avi       filter=lfs diff=lfs merge=lfs -text
+*.webm      filter=lfs diff=lfs merge=lfs -text
+
+# 字体
+*.ttf       filter=lfs diff=lfs merge=lfs -text
+*.otf       filter=lfs diff=lfs merge=lfs -text
+
+# 打包/归档
+*.zip       filter=lfs diff=lfs merge=lfs -text
+*.7z        filter=lfs diff=lfs merge=lfs -text
+*.rar       filter=lfs diff=lfs merge=lfs -text
+*.unitypackage filter=lfs diff=lfs merge=lfs -text
+
+# Unity Terrain 大体积
+*.terrainlayer -text
+
+# DLL / 原生二进制
+*.dll       filter=lfs diff=lfs merge=lfs -text
+*.so        filter=lfs diff=lfs merge=lfs -text
+*.dylib     filter=lfs diff=lfs merge=lfs -text
+*.a         filter=lfs diff=lfs merge=lfs -text
+*.lib       filter=lfs diff=lfs merge=lfs -text
+*.pdb       filter=lfs diff=lfs merge=lfs -text
