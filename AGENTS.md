@@ -17,8 +17,9 @@
 
 ## 3. 代码约束（C#）
 
-- C# 代码统一放在 `Assets/Scripts/` 下；编辑器脚本放 `Assets/Editor/`。
+- C# 代码统一放在 `Assets/Scripts/` 下；运行时脚本放 `Assets/Scripts/Runtime/`，编辑器脚本放 `Assets/Scripts/Editor/`。
 - 顶层命名空间使用 `Bananza`，可按模块分子命名空间（如 `Bananza.Gameplay`）。
+- 详细的目录分层、命名空间映射与 `asmdef` 策略以 OpenSpec `project-layout` spec 为准（通过 `openspec show project-layout` 查看）。
 - 一个 `.cs` 文件只放一个顶层类型，文件名与类型名一致。
 - 引用新第三方库前先与用户确认，避免引入与团结引擎不兼容的包。
 
@@ -41,9 +42,9 @@
 
 ## 6. 本文件不约束的范围
 
-以下内容不在本文件约束范围内，**不要擅自约定**，以用户决策或 `Docs/` 下文档为准：
+以下内容不在本文件约束范围内，**不要擅自约定**，以用户决策、OpenSpec spec 或 `Docs/` 下文档为准：
 
-- `Assets/` 下子目录的细分组织
-- `asmdef` 划分策略
+- `Assets/` 下子目录的细分组织—— 以 OpenSpec `project-layout` spec 为准
+- `asmdef` 划分策略—— 以 OpenSpec `project-layout` spec 为准
 - 分支策略、发布流程
 - 详细编码风格（命名、注释、日志等）—— 以 `Docs/CodingGuidelines.md` 为准

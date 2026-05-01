@@ -49,7 +49,7 @@ Bananza/
 └── README.md
 ```
 
-> `Assets/` 下子目录细分、`asmdef` 划分等尚未定稿，将在后续设计文档中明确。
+> `Assets/` 下子目录细分与 `asmdef` 划分以 OpenSpec `project-layout` spec 为准（运行 `openspec show project-layout` 查看）。
 
 ---
 
@@ -57,6 +57,7 @@ Bananza/
 
 - [Docs/EngineNotes_Tuanjie.md](Docs/EngineNotes_Tuanjie.md) —— 团结引擎使用经验与注意事项
 - [Docs/LegacyReferences.md](Docs/LegacyReferences.md) —— 旧项目探索阶段的参考与复用清单
+- 项目骨架与 `asmdef` 规范见 OpenSpec `project-layout` spec（`openspec show project-layout`）
 
 ---
 
