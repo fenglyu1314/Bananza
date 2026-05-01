@@ -4,6 +4,8 @@
 
 本 capability 固化 Bananza 项目最顶层的玩法纲领——品类定位、玩家模式、核心动作、情绪基调、目标结构与回访性约束——作为后续所有玩法类 capability（`world-structure`、`player-character`、`art-direction`、`task-system`、`world-state-persistence` 等）的单一事实源。凡与本规范冲突的具体能力提案，MUST 先通过修改本 spec 对应 requirement 的 change，方可进入项目。
 
+> **非规范性说明**：项目的大致交付节奏与阶段划分记录在 `Docs/roadmap.md`，该文件仅作为 change 排期参考，**不具备 spec 效力**，其内容不构成对本 spec 任何 requirement 的修改或覆盖。
+
 ## Requirements
 ### Requirement: Genre as Lighthearted 3D Mischief Sandbox
 
