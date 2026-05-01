@@ -1,0 +1,23 @@
+{
+    // ============================================================
+    // 推荐扩展
+    //   打开本工作区时，VSCode 会提示安装下列扩展
+    //   只放"打开本项目会用到"的扩展，个人偏好请自行安装
+    // ============================================================
+    "recommendations": [
+        // --- C# / .NET ---
+        "ms-dotnettools.csharp",                // C# 语言支持（LSP、诊断）
+        "visualstudiotoolsforunity.vstuc",      // Visual Studio Tools for Unity（Attach 调试 / 断点）
+
+        // --- 代码风格 ---
+        "editorconfig.editorconfig",            // 读取根目录 .editorconfig
+
+        // --- 版本控制 ---
+        "eamodio.gitlens",                      // Git 历史 / Blame / 文件注释
+
+        // --- 团结/Unity 周边 ---
+        "tobiah.unity-tools",                   // 创建 C# 脚本时自动补 .meta 等小工具
+        "kleber-swf.unity-code-snippets"        // 常用 Unity API 片段
+    ],
+    "unwantedRecommendations": []
+}

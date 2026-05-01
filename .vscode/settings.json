@@ -1,3 +1,84 @@
 {
-    "dotnet.preferCSharpExtension": true
+    // ============================================================
+    // Bananza · VSCode 工作区配置（项目级）
+    //  - 仅放置"与本项目强相关"的推荐配置
+    //  - 个人偏好（主题/字体等）请放在用户级 settings，不要放这里
+    // ============================================================
+
+    // ---------- C# / .NET ----------
+    // 使用新的 C# 扩展（ms-dotnettools.csharp）而非旧的 OmniSharp
+    "dotnet.preferCSharpExtension": true,
+
+    // ---------- 文件浏览器：隐藏 Unity/IDE 自动生成的噪音 ----------
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+
+        // Unity / 团结引擎生成目录
+        "**/Library": true,
+        "**/Temp": true,
+        "**/Obj": true,
+        "**/obj": true,
+        "**/Logs": true,
+        "**/UserSettings": true,
+        "**/MemoryCaptures": true,
+
+        // IDE 生成的工程文件（Unity 会自动重建，不需要在侧边栏看到）
+        "**/*.csproj": true,
+        "**/*.sln": true,
+        "**/*.suo": true,
+        "**/*.user": true,
+        "**/*.userprefs": true,
+        "**/*.pidb": true,
+        "**/*.booproj": true,
+        "**/*.unityproj": true,
+        "**/.vsconfig": true,
+
+        // 隐藏所有 .meta（Unity 会维护，开发者很少直接编辑）
+        "**/*.meta": true
+    },
+
+    // ---------- 文件监听：减少 Watcher 负担，避免 ENOSPC 和卡顿 ----------
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/Library/**": true,
+        "**/Temp/**": true,
+        "**/Obj/**": true,
+        "**/obj/**": true,
+        "**/Logs/**": true,
+        "**/MemoryCaptures/**": true,
+        "**/Build/**": true,
+        "**/Builds/**": true
+    },
+
+    // ---------- 全局搜索：跳过无意义目录 ----------
+    "search.exclude": {
+        "**/Library": true,
+        "**/Temp": true,
+        "**/Obj": true,
+        "**/obj": true,
+        "**/Logs": true,
+        "**/UserSettings": true,
+        "**/Build": true,
+        "**/Builds": true,
+        "**/*.meta": true
+    },
+
+    // ---------- 文本与行尾 ----------
+    // 新建文件默认 LF，呼应 .gitattributes 的 eol=lf 策略
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+
+    // ---------- 关联：让 Unity YAML 资产在打开时至少有语法高亮 ----------
+    "files.associations": {
+        "*.asmdef": "json",
+        "*.asmref": "json",
+        "*.uxml": "xml",
+        "*.uss": "css"
+    }
 }

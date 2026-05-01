@@ -1,0 +1,27 @@
+{
+    // ============================================================
+    // 调试配置
+    //   - 依赖扩展：visualstudiotoolsforunity.vstuc
+    //     （在 .vscode/extensions.json 已推荐）
+    //   - 使用方法：在团结编辑器里点 Play，然后在 VSCode
+    //     选择下列配置之一 → F5 即可 Attach 调试
+    // ============================================================
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // 最常用：弹出列表让你选中正在运行的团结/Unity 编辑器进程
+            "name": "Attach to Unity",
+            "type": "vstuc",
+            "request": "attach"
+        },
+        {
+            // 自动查找本机唯一的 Unity Editor 进程（开多个编辑器时不要用这个）
+            "name": "Attach to Unity (Editor)",
+            "type": "vstuc",
+            "request": "attach",
+            "endpoint": {
+                "name": "Unity Editor"
+            }
+        }
+    ]
+}
