@@ -15,7 +15,7 @@
 | --- | --- |
 | 引擎 | 团结引擎（Tuanjie Engine） |
 | 当前版本 | **1.8.2** |
-| 底座对应 Unity 版本 | Unity 2022.3 LTS（团结 1.x 线基于 2022.3 LTS fork） |
+| 底座对应 Unity 版本 | Unity **2022.3.62t4**（LTS）；团结 1.x 线基于 2022.3 LTS fork |
 | 维护方 | Unity 中国 |
 | 编辑器语言 | 中文 / 英文可切换 |
 
@@ -44,25 +44,31 @@
 
 ## 3. 技术选型（已确认）
 
+> 本节聚焦**团结引擎语境下的技术选型决策**。硬性规则（引擎版本、LFS、命名空间等）见 [AGENTS.md](../AGENTS.md)，仓库环境信息见 [README.md](../README.md)。
+
 | 模块 | 选型 | 备注 |
 | --- | --- | --- |
 | **渲染管线** | URP（Universal Render Pipeline） | 可能根据项目需要做定制（自定义 Renderer Feature、后处理等） |
 | **输入系统** | 新 Input System（Package） | 初步决定，实际使用中若遇到兼容问题可再评估 |
-| **编程语言** | C# 9.0（2022.3 LTS 默认） | 需要更高版本特性时再单独启用 |
+| **编程语言** | C# 9.0（Unity 2022.3 LTS 默认启用的子集）[^csharp] | 需要更高版本特性时再单独启用 |
 | **脚本后端** | Mono（开发期） / IL2CPP（发布期） | 发布时切 IL2CPP 以便将来兼容移动端 |
 | **.NET 兼容级别** | .NET Standard 2.1 | 默认即可 |
 | **版本控制** | Git + Git LFS | 不依赖 Unity Cloud / Collab |
 
-### 待在开发中验证的选型
+[^csharp]: Unity 2022.3 LTS 官方启用的是 C# 9.0 的部分特性（如 `record`、`init`、目标类型 `new` 等），并非完整 9.0。团结 1.8.2 下的实际启用范围待实战验证。
 
-以下项目暂未定，等到对应需求出现时再决策：
+### 待在开发中决策的选型（多方案对比）
+
+以下项目暂未定，等到对应需求出现时再决策；关注点是"**要不要用、用哪个**"：
 
 - [ ] **资源管理**：Addressables vs YooAsset vs 原生 Resources/AssetBundle
 - [ ] **异步方案**：UniTask vs 原生 Coroutine/Task
-- [ ] **UI 框架**：UGUI vs UI Toolkit（团结对 UI Toolkit 的支持度待验证）
+- [ ] **UI 框架**：UGUI vs UI Toolkit
 - [ ] **DI / 架构框架**：是否引入 VContainer / Zenject，或自研轻量容器
 - [ ] **序列化**：JsonUtility vs Newtonsoft.Json vs MemoryPack
-- [ ] **Timeline / Cinemachine**：版本与可用性
+- [ ] **Timeline / Cinemachine**：是否使用，以及主版本线（2.x / 3.x）
+
+> 注：上述候选方案在团结引擎下是否可用、版本是否齐备，属于"兼容性验证"问题，见第 5 节。
 
 ---
 
@@ -91,6 +97,7 @@
 - 基于 URP 做了团结自研扩展（主要服务于小游戏端和车机场景的轻量渲染）。
 - Shader Graph 基本通用，某些新 feature 可能跟得慢于 Unity 最新版。
 - 📝 本项目以 URP 为主，若用到自研扩展再回来记录。
+- **当前项目实际使用的 URP 版本**：14.x（以 `Packages/manifest.json` 为准，升级时同步更新此处）。
 
 ### 4.5 Editor
 - 编辑器原生支持中文界面。
@@ -98,17 +105,17 @@
 
 ---
 
-## 5. 当前不确定 / 待实验的点
+## 5. 当前不确定 / 待实验的点（兼容性验证）
+
+> 本节聚焦"**团结下能不能用、行为是否与标准 Unity 一致**"。选型决策（要不要用、用哪个）归档到第 3 节。
 
 以下是目前暂未验证、需要在开发中确认的细节。遇到时请回来更新本节：
 
-1. **Input System 包版本号**：团结 1.8.2 里的实际版本，以及与 `Monkey_Demo` 里旧工程用法的兼容性。
-2. **Addressables 可用性**：团结是否完整支持，以及官方是否推荐了替代方案。
-3. **Cinemachine 主版本**：是 2.x 还是 3.x（3.x 有较大 API 变化）。
-4. **UI Toolkit 支持度**：Runtime UI Toolkit 在团结下的成熟度。
-5. **Burst / Jobs / ECS** 等 DOTS 相关模块的可用性。
-6. **Profiler / Frame Debugger** 等调试工具是否有定制差异。
-7. **团结 1.8 → 2.x 的升级路线**：是否需要在代码中规避某些即将废弃的 API。
+1. **Input System 包版本与稳定性**：团结 1.8.2 下 Input System 的实际包版本、已知 issue、与底座 Unity 2022.3 官方版本的行为差异。
+2. **Burst / Jobs / ECS** 等 DOTS 相关模块在团结下的可用性。
+3. **Profiler / Frame Debugger** 等调试工具是否有定制差异。
+4. **C# 语言特性实际启用范围**：团结 1.8.2 下 C# 9.0 中哪些语法已启用、哪些未启用。
+5. **团结 1.8 → 2.x 的升级路线**：是否需要在代码中规避某些即将废弃的 API。
 
 ---
 
@@ -143,9 +150,9 @@
 - 团结引擎文档中心：<https://docs.unity.cn/cn/tuanjie/>
 - Unity 2022.3 LTS 文档（作为底座参考）：<https://docs.unity3d.com/2022.3/Documentation/Manual/>
 - 项目内相关文档：
-  - [Framework.md](./Framework.md) — 项目框架设计
-  - [GDD.md](./GDD.md) — 游戏设计文档
+  - [AGENTS.md](../AGENTS.md) — 项目基础规则（面向 AI 助手与新成员）
   - [LegacyReferences.md](./LegacyReferences.md) — 旧 Demo 可参考设计
+  - 待创建：`Framework.md`（项目框架设计）、`GDD.md`（游戏设计文档）、`CodingGuidelines.md`（详细编码规范）
 
 ---
 

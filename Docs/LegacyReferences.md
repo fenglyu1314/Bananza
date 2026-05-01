@@ -1,8 +1,8 @@
 
 # 旧版 Monkey_Demo 项目复盘 — 可复用设计参考
 
-> 目的：梳理旧 Demo 在"一边探索一边开发"中沉淀下来的、值得在新项目中保留或参考的设计。  
-> 生成时间：2026-05-01  
+> 目的：梳理旧 Demo 在"一边探索一边开发"中沉淀下来的、值得在新项目中保留或参考的设计。
+> 生成时间：2026-05-01
 > 源工程：`Monkey_Demo/` — 阶段 P1~P5 + P7/P8 任务编辑器 已实现；P6 攀爬 暂停。
 
 ---
@@ -90,7 +90,7 @@ canBeThrown / canBePlaced / destroyOnImpact   (行为标志)
 grabSound / throwSound / impactSound          (音效)
 ```
 
-**保留**：这套字段结构。  
+**保留**：这套字段结构。
 **可改进**：把音效改成 `AudioClipRef`（Addressable）或引入 `AudioEventSO`，避免直接硬引用。
 
 ### 2.3 ⭐ 任务节点图系统（TaskGraph / TaskNodeBase / 端口定义）
@@ -184,9 +184,9 @@ TaskData
 
 这套结构支持"主线/支线/隐藏"三类任务，任务间依赖关系清晰。**保留**。
 
-### 2.9 开发规范与流程（`.augment-guidelines`）
+### 2.9 开发规范与流程
 
-[.augment-guidelines](.augment-guidelines) 里定义好的命名、中英混用、团结引擎兼容等规则，**原样保留**。
+旧工程使用 `.augment-guidelines` 维护 AI 协作规则，新工程已改用 [AGENTS.md](../AGENTS.md) 承载等价职责（命名、目录、团结引擎兼容、提交规范等），**旧文件不再迁移**。新项目的硬性约束以 [AGENTS.md](../AGENTS.md) 为唯一来源。
 
 ---
 
@@ -249,6 +249,8 @@ NPCProfile
 ---
 
 ## 四、迁移清单（把旧资产带到新项目）
+
+> ⚠️ **本节是待办建议，非当前状态**：下表列出的资源目前**尚未迁入**本工程，仅作为后续迁移参考。实际迁移时再按需拽入。
 
 可以直接复制/移植：
 

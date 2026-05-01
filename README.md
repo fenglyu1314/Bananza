@@ -31,23 +31,25 @@ git lfs pull
 
 ---
 
-## 目录结构（规划中）
+## 目录结构
 
 ```
 Bananza/
-├── Assets/           # Unity 资产目录
+├── Assets/           # Unity 资产目录（Scripts / Editor / Data / Scenes / Settings …目前部分为占位）
 ├── Packages/         # UPM 包清单
 ├── ProjectSettings/  # 项目设置（已启用 Force Text 序列化）
 ├── Docs/             # 项目文档
-│   ├── EngineNotes_Tuanjie.md   # 引擎使用笔记
-│   └── LegacyReferences.md      # 旧项目参考
+│   ├── EngineNotes_Tuanjie.md   # 团结引擎笔记与差异
+│   └── LegacyReferences.md      # 旧项目 Monkey_Demo 可复用设计参考
+├── AGENTS.md          # 项目基础规则（面向 AI 助手与新成员）
+├── .editorconfig      # 编辑器编码风格（缩进/行尾/编码）
 ├── .gitignore
-├── .gitattributes    # 含 Git LFS 规则
-├── LICENSE           # MIT
+├── .gitattributes     # 含 Git LFS 规则
+├── LICENSE            # MIT
 └── README.md
 ```
 
-> **Assets 下的子目录组织、Scripts 的 asmdef 划分**等细节尚未确定，将在后续设计文档中明确。
+> `Assets/` 下子目录细分、`asmdef` 划分等尚未定稿，将在后续设计文档中明确。
 
 ---
 
@@ -58,13 +60,15 @@ Bananza/
 
 ---
 
-## 开发约定（待细化）
+## 开发约定
+
+项目硬性约束（引擎版本、LFS、命名空间、`.meta` 规范、AI 助手行为等）统一见 [AGENTS.md](AGENTS.md)，本节仅列几项开发者日常需要注意的点：
 
 - **序列化模式**：Force Text（已设置，便于 diff/merge）
 - **行尾**：仓库统一 LF（详见 `.gitattributes`）
+- **提交信息**：候选 Conventional Commits（`feat:` / `fix:` / `chore:` / `docs:` / `refactor:`），小步提交
 - **分支策略**：待定
-- **提交信息规范**：待定（倾向 Conventional Commits）
-- **编码规范**：待定（将单独落在 `Docs/CodingGuidelines.md`）
+- **详细编码规范**：待定（将落在 `Docs/CodingGuidelines.md`）
 
 ---
 
