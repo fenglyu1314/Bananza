@@ -9,15 +9,11 @@ context: |
     - 代码风格遵循仓库根的 .editorconfig（C# 4 空格、LF、UTF-8）。
     - 引擎相关实践沉淀在 Docs/EngineNotes_Tuanjie.md。
     - 团队协作基线见 AGENTS.md；项目愿景与玩法见 README.md。
-  Language:
-    - 所有 OpenSpec 产物（proposal.md / design.md / tasks.md / spec.md 正文）默认使用简体中文撰写。
-    - 以下内容必须保留英文原文，不翻译：
-        * OpenSpec 结构骨架：`## Purpose`、`## Requirements`、`### Requirement:`、`#### Scenario:`、`- **WHEN**` / `- **THEN**` / `- **AND**`。
-        * RFC 2119 关键词（全大写）：MUST、MUST NOT、SHALL、SHALL NOT、SHOULD、SHOULD NOT、MAY。
-        * 代码标识符：类名、方法名、字段名、命名空间、asmdef 名、路径、文件名、配置键、CLI 命令、Unity/团结引擎 API。
-        * 行业专有名词首次出现时可用 "中文（English）" 形式，如 "渲染管线（URP）"，后续统一用其中一种。
-    - Requirement 标题（`### Requirement:` 后的短语）建议保留英文，便于后续 delta spec 按标题匹配。
-    - Git commit message、branch name、PR 标题遵循团队既有英文惯例，不受此规范影响。
+  Language (执行层摘要；完整规则以 spec 为准):
+    - 所有 OpenSpec 产物的自然语言部分默认使用简体中文。
+    - OpenSpec 结构骨架（## Purpose / ## Requirements / ### Requirement: / #### Scenario: / WHEN / THEN / AND）与 RFC 2119 关键词（MUST/SHALL/SHOULD/MAY 等）保留英文原文。
+    - 代码标识符（类名、方法名、路径、文件名、配置键、CLI 命令、Unity/团结引擎 API、asmdef 名等）保留英文原文，正文提及时用反引号包裹。
+    - 权威规则参见 `openspec/specs/documentation-conventions/spec.md`；本段仅为 prompt 注入时的执行层摘要，如与 spec 冲突，以 spec 为准。
   OpenSpec usage:
     - specs/ 存放已稳定的能力规格（capability spec）。
     - changes/ 存放进行中的提案；完成后归档到 changes/archive/。
@@ -41,17 +37,14 @@ context: |
 #     tasks:
 #       - Break tasks into chunks of max 2 hours
 
+# 以下 rules.* 仅为每类 artifact 的执行层提示；文档语言的完整规范见
+# openspec/specs/documentation-conventions/spec.md。
 rules:
   proposal:
     - 用中文撰写 Why / What Changes / Impact 各节的正文；节标题保留英文。
-    - "What Changes" 列表中，change 条目以中文动词开头（如"新增"、"重构"、"移除"），涉及具体文件/符号时用反引号保留英文原名。
   design:
-    - 技术决策、权衡说明、架构描述用中文；代码块、路径、配置片段保留原文。
-    - 每个决策以 "## Decision: <中文简述>" 作为小节标题。
+    - 技术决策与权衡说明用中文，代码块、路径、配置片段保留原文。
   tasks:
-    - 任务描述用中文祈使句（如"创建 Assets/Scripts/Runtime/ 目录"）。
-    - 涉及路径、文件名、符号时一律用反引号包裹英文原文。
-  spec:
-    - Purpose / Requirement 正文 / Scenario 内容用中文。
-    - 骨架 token（`### Requirement:` / `#### Scenario:` / WHEN / THEN / AND）与 RFC 2119 关键词保持英文。
-    - Requirement 标题（`### Requirement:` 后的短语）保留英文，便于 delta spec 按标题匹配。
+    - 任务描述用中文祈使句；路径、文件名、符号用反引号包裹英文原文。
+  specs:
+    - Requirement 标题保留英文，正文与 Scenario 正文用中文；Scenario 使用 4 个 `#`。
