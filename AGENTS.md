@@ -8,6 +8,7 @@
 
 - 基于 **团结引擎 Tuanjie 1.8.2**（Unity 2022.3.62t4）+ **URP 14.x** 的 3D 动作游戏原型。
 - 项目当前阶段、目录演进等易变信息见 [README.md](README.md)，本文件只承载稳定规则。
+- 玩法层面的最顶层纲领（品类定位、玩家模式、核心动作、情绪基调、目标结构、回访性约束等）以 OpenSpec `gameplay-vision` spec 为准，参见 [openspec/specs/gameplay-vision/](openspec/specs/gameplay-vision/)（或运行 `openspec show gameplay-vision`）。
 
 ## 2. 环境与工具
 
@@ -47,5 +48,6 @@
 
 - `Assets/` 下子目录的细分组织—— 以 OpenSpec `project-layout` spec 为准
 - `asmdef` 划分策略—— 以 OpenSpec `project-layout` spec 为准
+- 项目玩法纲领（品类、玩家模式、核心动作、基调、目标结构、回访性）—— 以 OpenSpec `gameplay-vision` spec 为准
 - 分支策略、发布流程
 - 详细编码风格（命名、注释、日志等）—— 以 `Docs/CodingGuidelines.md` 为准

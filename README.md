@@ -58,6 +58,7 @@ Bananza/
 - [Docs/EngineNotes_Tuanjie.md](Docs/EngineNotes_Tuanjie.md) —— 团结引擎使用经验与注意事项
 - [Docs/LegacyReferences.md](Docs/LegacyReferences.md) —— 旧项目探索阶段的参考与复用清单
 - 项目骨架与 `asmdef` 规范见 OpenSpec `project-layout` spec（`openspec show project-layout`）
+- 项目玩法纲领（品类、玩家模式、核心动作、基调、目标结构、回访性）见 OpenSpec `gameplay-vision` spec（`openspec show gameplay-vision`）
 
 ---
 
