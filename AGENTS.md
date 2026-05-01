@@ -26,12 +26,14 @@
 
 - 二进制资产（贴图/模型/音频/视频/动画等）走 LFS，不要直接塞入 Git。
 - `.meta` 文件必须与对应资源**一起提交**，禁止产生 `.meta` 孤儿文件或缺 `.meta` 的资源。
+- **`.meta` 文件一律由 Unity 编辑器自动生成**，严禁手工编写、复制或由脚本/AI 直接创建；如需新增资源，先放入 `Assets/` 下让 Unity 生成 `.meta`，再一起提交。
 - `ProjectSettings/` 下的 `.asset` 已启用 **Force Text** 序列化，修改需谨慎、写清 commit 说明。
 - 提交信息倾向 **Conventional Commits**（`feat:` / `fix:` / `chore:` / `docs:` / `refactor:`），小步提交。
 
 ## 5. AI 编码助手须知
 
 - 遵守本文件所有规则；当规则与用户临时指令冲突时，以用户指令为准并提醒冲突。
+- **严禁主动创建、伪造或修改 `.meta` 文件**：所有 `.meta` 必须由 Unity 编辑器自动生成。新增资源时，仅创建资源文件本身，随后提示用户在 Unity 中刷新以生成 `.meta`，再统一提交。
 - 修改 `ProjectSettings/*.asset`、`.gitattributes`、`.gitignore` 前，先告知用户可能的影响。
 - 批量改动、删除文件、调整目录结构前，必须先向用户说明方案并获得确认。
 - **不要主动新建文档文件**（`*.md`、README 等），除非用户明确要求。
