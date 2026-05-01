@@ -38,6 +38,7 @@
 - 遵守本文件所有规则；当规则与用户临时指令冲突时，以用户指令为准并提醒冲突。
 - **严禁主动创建、伪造或修改 `.meta` 文件**：所有 `.meta` 必须由 Unity 编辑器自动生成。新增资源时，仅创建资源文件本身，随后提示用户在 Unity 中刷新以生成 `.meta`，再统一提交。
 - **涉及团结引擎 / Unity 编辑器内的操作（创建场景、Prefab、ScriptableObject 实例、配置组件、设置 Project Settings、绑定 Input Action、挂接资源引用等）默认通过给出清晰的手动操作步骤，引导用户在编辑器中亲手完成**，不要主动编写 Editor 脚本、`MenuItem`、`AssetPostprocessor`、一次性自动化工具来代劳。仅当用户**明确要求**"写个脚本自动做这件事"时，才提供自动化脚本，避免项目中堆积一次性 / 临时性脚本。
+- **严禁主动执行任何 Git 相关命令**：包括但不限于写操作（`git add` / `commit` / `commit --amend` / `push` / `reset` / `restore` / `checkout` / `switch` / `merge` / `rebase` / `stash` / `tag` / `cherry-pick` / `clean` 等）以及只读查询（`git status` / `log` / `show` / `diff` / `blame` / `fetch` / `remote` 等）。用户自行管理仓库状态，AI 不得主动调用 Git。需要了解仓库状态或执行任何 Git 操作时，**必须改为给出清晰的命令 / 步骤提示，引导用户手动在终端执行**，再由用户把结果反馈给 AI。仅当用户明确说"帮我跑一下 `git xxx`""你来执行 git..."等授权指令时，AI 才可直接调用对应命令。此外，若用户未主动谈及 Git，AI 也不要擅自催促提交、质疑工作区状态或试图"找回"改动。
 - 修改 `ProjectSettings/*.asset`、`.gitattributes`、`.gitignore` 前，先告知用户可能的影响。
 - 批量改动、删除文件、调整目录结构前，必须先向用户说明方案并获得确认。
 - **不要主动新建文档文件**（`*.md`、README 等），除非用户明确要求。
