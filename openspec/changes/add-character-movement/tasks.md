@@ -34,26 +34,24 @@
 
 ## 6. 场景与 Prefab 搭建（在团结引擎编辑器中完成，不得手工生成 `.meta`）
 
-- [ ] 6.1 新建场景 `Assets/Scenes/Sandbox_P1.unity`，保存为默认打开场景
-- [ ] 6.2 在场景中放置一块足够大的平坦地面（Plane / Cube 均可）、若干作为参照物的墙体或箱体 primitive、至少一个有落差的小平台
-- [ ] 6.3 在场景中创建主角 GameObject：胶囊体视觉 + `CharacterController` + `PlayerController` + `PlayerInput`（引用 3.1 创建的 asset，Behavior = `Send Messages` 或 `Invoke Unity Events`，由 `PlayerController` 通过 `InputAction` 回调消费）
-- [ ] 6.4 将主角 GameObject 拖到 `Assets/Prefabs/` 下保存为 `Player.prefab`，并在场景中以 prefab 实例替换原 GameObject
-- [ ] 6.5 在场景中创建主相机（或复用默认 `Main Camera`），挂 `PlayerFollowCamera`，将 `target` 设为主角 prefab 实例
-- [ ] 6.6 在 `PlayerController` 上把相机引用指向该主相机，保证"按下前"解算为相机正前方
-
+- [x] 6.1 新建场景 `Assets/Scenes/Sandbox_P1.unity`，保存为默认打开场景
+- [x] 6.2 在场景中放置一块足够大的平坦地面（Plane / Cube 均可）、若干作为参照物的墙体或箱体 primitive、至少一个有落差的小平台
+- [x] 6.3 在场景中创建主角 GameObject：胶囊体视觉 + `CharacterController` + `PlayerController` + `PlayerInput`（引用 3.1 创建的 asset，Behavior = `Send Messages` 或 `Invoke Unity Events`，由 `PlayerController` 通过 `InputAction` 回调消费）
+- [x] 6.4 将主角 GameObject 拖到 `Assets/Prefabs/` 下保存为 `Player.prefab`，并在场景中以 prefab 实例替换原 GameObject
+- [x] 6.5 在场景中创建主相机（或复用默认 `Main Camera`），挂 `PlayerFollowCamera`，将 `target` 设为主角 prefab 实例
+- [x] 6.6 在 `PlayerController` 上把相机引用指向该主相机，保证"按下前"解算为相机正前方
 ## 7. 冒烟验证（对照 spec 的 Scenario）
 
-- [ ] 7.1 在编辑器中进入 `Sandbox_P1` 场景 Play，手柄推满左摇杆"前"，主角沿相机前方匀速前进且松手后短时间内停止（对应 *Ground Movement* 场景 1）
-- [ ] 7.2 输入右上 45°，主角以"前 + 右"合成方向移动，且移动速率不超过单方向最大速率（场景 2）
-- [ ] 7.3 主角撞墙被阻挡且不穿模（场景 3）
-- [ ] 7.4 主角从小平台边缘走出后坠落并在落地后恢复正常移动（场景 4）
-- [ ] 7.5 连续改变方向时主角朝向平滑切换，无瞬移式旋转或抖动；松手静止后朝向保持不动（*Character Facing* 两个场景）
-- [ ] 7.6 相机全程平滑跟随主角，急停后短时间内收敛到对准静止主角，无明显过冲（*Third-Person Follow Camera* 三个场景）
-- [ ] 7.7 拔出手柄改用键鼠继续上述验证，主角移动表现一致（*Input Mapping* 两个场景）
-
+- [x] 7.1 在编辑器中进入 `Sandbox_P1` 场景 Play，手柄推满左摇杆"前"，主角沿相机前方匀速前进且松手后短时间内停止（对应 *Ground Movement* 场景 1）
+- [x] 7.2 输入右上 45°，主角以"前 + 右"合成方向移动，且移动速率不超过单方向最大速率（场景 2）
+- [x] 7.3 主角撞墙被阻挡且不穿模（场景 3）
+- [x] 7.4 主角从小平台边缘走出后坠落并在落地后恢复正常移动（场景 4）
+- [x] 7.5 连续改变方向时主角朝向平滑切换，无瞬移式旋转或抖动；松手静止后朝向保持不动（*Character Facing* 两个场景）
+- [x] 7.6 相机全程平滑跟随主角，急停后短时间内收敛到对准静止主角，无明显过冲（*Third-Person Follow Camera* 三个场景）
+- [x] 7.7 拔出手柄改用键鼠继续上述验证，主角移动表现一致（*Input Mapping* 两个场景）
 ## 8. OpenSpec 校验与提交
 
 - [x] 8.1 运行 `openspec validate add-character-movement --strict`，确保 change 校验通过
-- [ ] 8.2 在团结引擎编辑器中 `File → Save Project`，让编辑器为本次新增的资源生成 `.meta` 文件
-- [ ] 8.3 用 `git status` 检查新增文件齐全：脚本、场景、prefab、InputActionAsset 与各自的 `.meta` 均由编辑器生成；无手工创建的 `.meta`
-- [ ] 8.4 使用 Conventional Commits 提交：`feat(player): add basic ground movement and follow camera`
+- [x] 8.2 在团结引擎编辑器中 `File → Save Project`，让编辑器为本次新增的资源生成 `.meta` 文件
+- [x] 8.3 用 `git status` 检查新增文件齐全：脚本、场景、prefab、InputActionAsset 与各自的 `.meta` 均由编辑器生成；无手工创建的 `.meta`
+- [x] 8.4 使用 Conventional Commits 提交：`feat(player): add basic ground movement and follow camera`

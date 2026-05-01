@@ -20,7 +20,7 @@ Bananza 进入 P1 阶段的第一步交付：要搭出一个"能跑起来"的最
 ## Impact
 
 - **新增代码**：`Assets/Scripts/PlayerCharacter/` 下的角色控制脚本与相机跟随脚本（具体类名与目录结构在 `design.md` 中给出）。
-- **新增资源**：测试用场景（如 `Assets/Scenes/Sandbox_P1.unity`）、主角 prefab、占位模型或 primitive 作为视觉代理。资源本体由人工在团结引擎编辑器中创建；对应 `.meta` 文件严禁手工生成，必须由编辑器在导入时自动产出。
+- **新增资源**：测试用场景（如 `Assets/Scenes/Sandbox_P1.scene`）、主角 prefab、占位模型或 primitive 作为视觉代理。资源本体由人工在团结引擎编辑器中创建；对应 `.meta` 文件严禁手工生成，必须由编辑器在导入时自动产出。
 - **新增 spec**：`openspec/specs/player-character/spec.md`（通过本 change 的 delta 创建）。
 - **依赖 / 约束**：严格遵守 `gameplay-vision` 已固化的品类定位、无失败机制、单机离线等基线；遵守 `project-layout` 中关于 `Assets/` 结构与 asmdef 的约束；遵守 `documentation-conventions` 中关于中英文混排的约束。
 - **不涉及**：网络、存档、UI、音频、AI NPC、任务系统；这些能力在后续阶段单独立 change。

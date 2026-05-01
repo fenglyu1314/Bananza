@@ -90,7 +90,7 @@
 
 ### Decision 5：测试场景命名与位置
 
-**方案**：新增一个沙盒场景 `Assets/Scenes/Sandbox_P1.unity`，含一块地面、若干参照物（墙、箱子等 primitive）、一个主角 prefab 实例与跟随相机。该场景作为 P1 各 change 共享的调试场景，后续 change（拾取、投掷等）可以在同一场景中增量验证。
+**方案**：新增一个沙盒场景 `Assets/Scenes/Sandbox_P1.scene`，含一块地面、若干参照物（墙、箱子等 primitive）、一个主角 prefab 实例与跟随相机。该场景作为 P1 各 change 共享的调试场景，后续 change（拾取、投掷等）可以在同一场景中增量验证。
 
 **理由**：统一沙盒场景可减少"换 change 就换场景"的切换成本；同时场景路径遵守 `project-layout` 对 `Assets/Scenes/` 的约束。
 
