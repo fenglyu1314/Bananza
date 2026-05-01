@@ -34,7 +34,7 @@
 
 ## 6. 场景与 Prefab 搭建（在团结引擎编辑器中完成，不得手工生成 `.meta`）
 
-- [x] 6.1 新建场景 `Assets/Scenes/Sandbox_P1.unity`，保存为默认打开场景
+- [x] 6.1 新建场景 `Assets/Scenes/Sandbox_P1.scene`，保存为默认打开场景
 - [x] 6.2 在场景中放置一块足够大的平坦地面（Plane / Cube 均可）、若干作为参照物的墙体或箱体 primitive、至少一个有落差的小平台
 - [x] 6.3 在场景中创建主角 GameObject：胶囊体视觉 + `CharacterController` + `PlayerController` + `PlayerInput`（引用 3.1 创建的 asset，Behavior = `Send Messages` 或 `Invoke Unity Events`，由 `PlayerController` 通过 `InputAction` 回调消费）
 - [x] 6.4 将主角 GameObject 拖到 `Assets/Prefabs/` 下保存为 `Player.prefab`，并在场景中以 prefab 实例替换原 GameObject

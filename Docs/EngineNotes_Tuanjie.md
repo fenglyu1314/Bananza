@@ -103,6 +103,14 @@
 - 编辑器原生支持中文界面。
 - 部分错误信息和文档有官方中文版。
 
+### 4.6 场景资源扩展名为 `.scene`（⚠️ 与标准 Unity 不同）
+- 团结引擎的场景文件扩展名是 **`.scene`**（例如 `Assets/Scenes/Sandbox_P1.scene`），而不是标准 Unity 的 `.unity`。
+- 场景 YAML 文件头的 TAG 也改为团结自己的命名空间：`%TAG !u! tag:yousandi.cn,2023:`（标准 Unity 是 `tag:unity3d.com,2011:`）。
+- **实践建议**：
+  - 在 spec / proposal / design / tasks / 代码注释等所有文档中，**一律把场景路径写成 `.scene`**，不要照搬 Unity 习惯写 `.unity`。
+  - 如果在历史文档或他人贡献里看到 `.unity` 结尾的场景路径，视为误用，**在修订时同步纠正**。
+  - 需要在编辑器外部读写场景文本（比如脚本扫描、CI 检查）时，注意文件名与 TAG 头都与 Unity 不同，不要硬编码 `.unity` 或 Unity 的 TAG URI。
+
 ---
 
 ## 5. 当前不确定 / 待实验的点（兼容性验证）
