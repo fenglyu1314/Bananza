@@ -14,6 +14,7 @@
 - 引擎版本锁定：`2022.3.62t4` / `Tuanjie 1.8.2`，勿擅自升级。
 - **必须安装 Git LFS**（二进制资产走 LFS，由 `.gitattributes` 管理，不要随意修改该文件）。
 - 编辑器格式规则遵循仓库根目录的 `.editorconfig`，不要在 IDE 中覆盖其中的缩进/换行/编码设置。
+- **开发 IDE**：Visual Studio Code + Visual Studio（用于 Unity 调试）
 
 ## 3. 代码约束（C#）
 
