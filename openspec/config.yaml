@@ -1,5 +1,18 @@
 schema: spec-driven
 
+context: |
+  Project: Bananza — 基于团结引擎（Tuanjie，Unity 中国版分支）的单机游戏项目。
+  Engine / Language: Tuanjie Engine + C#，渲染管线 URP。
+  Platform: 主攻 PC（Windows），预留移动端可能性。
+  Conventions:
+    - .meta 文件必须由引擎自动生成，严禁人工或脚本创建。
+    - 代码风格遵循仓库根的 .editorconfig（C# 4 空格、LF、UTF-8）。
+    - 引擎相关实践沉淀在 Docs/EngineNotes_Tuanjie.md。
+    - 团队协作基线见 AGENTS.md；项目愿景与玩法见 README.md。
+  OpenSpec usage:
+    - specs/ 存放已稳定的能力规格（capability spec）。
+    - changes/ 存放进行中的提案；完成后归档到 changes/archive/。
+
 # Project context (optional)
 # This is shown to AI when creating artifacts.
 # Add your tech stack, conventions, style guides, domain knowledge, etc.
